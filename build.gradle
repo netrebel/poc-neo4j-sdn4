@@ -1,0 +1,43 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.0.RELEASE")
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+apply plugin: 'java'
+apply plugin: 'spring-boot'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    compile 'org.slf4j:slf4j-api:1.7.21'
+//    compile 'org.neo4j.driver:neo4j-java-driver:1.0.5'
+    compile 'org.neo4j:neo4j-collections:3.0.5'
+    compile 'org.neo4j:neo4j-ogm-bolt-driver:2.0.4'
+
+    compile("org.springframework.boot:spring-boot-starter")
+    compile 'org.springframework.boot:spring-boot-starter-data-rest'
+    compile("org.springframework.data:spring-data-neo4j")
+
+    compile 'com.voodoodyne.jackson.jsog:jackson-jsog:1.1'
+
+    compile 'org.apache.commons:commons-lang3:3.4'
+    compile 'org.slf4j:slf4j-api:1.7.21'
+    compile 'ch.qos.logback:logback-classic:1.1.7'
+
+    testCompile 'junit:junit:4.12'
+    testCompile 'org.neo4j:neo4j-ogm-test:2.0.4'
+    testCompile 'org.neo4j.test:neo4j-harness:3.0.5'
+    testCompile 'org.springframework.boot:spring-boot-starter-test:1.4.0.RELEASE'
+    testCompile(group: 'org.springframework.data', name: 'spring-data-neo4j', classifier: 'tests')
+    testCompile(group: 'org.neo4j.app', name: 'neo4j-server', classifier: 'tests')
+    testCompile(group: 'org.neo4j', name: 'neo4j-kernel', classifier: 'tests')
+}
